@@ -16,6 +16,7 @@
     "nodemon": "nodemon --ext es6 --watch-dir 'lib' --exec 'npm test && npm start'",
     "prestart": "npm run-script build",
     "pretest": "npm run-script build",
+    "pretest-cover": "npm run-script build",
     "start": "node server",
     "test": "lab -c -S",
     "test-cover": "lab -c -S -r html -o ./test/artifacts/coverage.html"
