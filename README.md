@@ -32,7 +32,7 @@ server.start(err => {
 });
 ```
 
-# Development
+## Development
 
 When developing, tests go into the tests folder.
 
