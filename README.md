@@ -1,6 +1,7 @@
 # simple-hapi-plugin-demo
 
 [![Build Status](https://travis-ci.org/blacksun1/simple-hapi-plugin-demo.svg?branch=master)](https://travis-ci.org/blacksun1/simple-hapi-plugin-demo)
+[![Coverage Status](https://coveralls.io/repos/github/blacksun1/simple-hapi-plugin-demo/badge.svg?branch=master)](https://coveralls.io/github/blacksun1/simple-hapi-plugin-demo?branch=master)
 
 Just an example. It doesn't really do anything. This is basically a starting point for a REAL Hapi Plugin. This plugin is all setup for development with:
 
