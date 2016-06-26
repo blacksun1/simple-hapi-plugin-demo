@@ -14,12 +14,18 @@
   "scripts": {
     "build": "grunt",
     "nodemon": "nodemon --ext es6 --watch-dir 'lib' --exec 'npm test && npm start'",
+
     "prestart": "npm run-script build",
-    "pretest": "npm run-script build",
-    "pretest-cover": "npm run-script build",
     "start": "node server",
+
+    "pretest": "npm run-script build",
     "test": "lab -c -S",
-    "test-cover": "lab -c -S -r html -o ./test/artifacts/coverage.html"
+
+    "pretest-cover": "npm run-script build",
+    "test-cover": "lab -c -S -r html -o ./test/artifacts/coverage.html",
+
+    "pretravis": "npm run-script build",
+    "travis": "lab -c -S -r lcov | ./node_modules/coveralls/bin/coveralls.js"
   },
   "repository": {
     "type": "git",
@@ -39,6 +45,7 @@
     "babel-preset-es2015-node4": "^2.1.0",
     "blipp": "^2.3.0",
     "code": "^3.0.1",
+    "coveralls": "^2.11.9",
     "eslint-config-blacksun1": "^2.2.0",
     "grunt": "^1.0.1",
     "grunt-babel": "^6.0.0",
