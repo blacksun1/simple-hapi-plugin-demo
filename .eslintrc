@@ -1,0 +1,17 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "extends": "blacksun1",
+  "rules": {
+
+    "id-length": ["warn"],
+
+    "init-declarations": [0]
+
+  }
+}

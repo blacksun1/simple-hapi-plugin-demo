@@ -1,0 +1,51 @@
+{
+  "name": "simple-hapi-plugin-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index",
+  "config": {
+    "port": 8080
+  },
+  "files": [
+    ".travis.yml",
+    "dist",
+    "test"
+  ],
+  "scripts": {
+    "build": "grunt",
+    "nodemon": "nodemon --ext es6 --watch-dir 'lib' --exec 'npm test && npm start'",
+    "prestart": "npm run-script build",
+    "pretest": "npm run-script build",
+    "start": "node server",
+    "test": "lab -c -S",
+    "test-cover": "lab -c -S -r html -o ./test/artifacts/coverage.html && open ./test/artifacts/coverage.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "blacksun1 <simon@blacksun.cx>",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-preset-es2015-node4": "^2.1.0",
+    "blipp": "^2.3.0",
+    "code": "^3.0.1",
+    "eslint-config-blacksun1": "^2.2.0",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^6.0.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-eslint": "^18.1.0",
+    "hapi": "13.x.x",
+    "lab": "10.x.x",
+    "load-grunt-tasks": "^3.5.0",
+    "nodemon": "^1.9.2"
+  }
+}

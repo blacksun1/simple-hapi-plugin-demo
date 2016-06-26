@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "id-length": ["error", {
+      "exceptions": [
+        "lab"
+      ]
+    }]
+  }
+}
