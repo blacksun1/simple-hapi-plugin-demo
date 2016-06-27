@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Simple-hapi-plugin-demo by blacksun1</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/blacksun1/simple-hapi-plugin-demo">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/blacksun1/simple-hapi-plugin-demo/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/blacksun1/simple-hapi-plugin-demo/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Simple-hapi-plugin-demo</h1>
+          <p></p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/blacksun1">blacksun1</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a id="simple-hapi-plugin-demo" class="anchor" href="#simple-hapi-plugin-demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>simple-hapi-plugin-demo</h1>
+
+<p><a href="https://travis-ci.org/blacksun1/simple-hapi-plugin-demo"><img src="https://travis-ci.org/blacksun1/simple-hapi-plugin-demo.svg?branch=master" alt="Build Status"></a>
+<a href="https://coveralls.io/github/blacksun1/simple-hapi-plugin-demo?branch=master"><img src="https://coveralls.io/repos/github/blacksun1/simple-hapi-plugin-demo/badge.svg?branch=master" alt="Coverage Status"></a></p>
+
+<p>Just an example. It doesn't really do anything. This is basically a starting point for a REAL Hapi Plugin. This plugin is all setup for development with:</p>
+
+<ul>
+<li>Grunt (build, -&gt; clean, eslint and babel)</li>
+<li>Tests (Using lab and code, written in JavaScript)</li>
+<li>Code for the plugin is written in babel and is in the <code>./lib/</code> folder. Gets built to <code>./dist/</code>.</li>
+</ul>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h2>
+
+<div class="highlight highlight-source-shell"><pre>$ npm install bitcoin-server --save</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Just register in your Hapi server like any other plugin.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">Hapi</span> <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>hapi<span class="pl-pds">"</span></span>);
+<span class="pl-k">const</span> <span class="pl-c1">server</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Hapi.Server</span>();
+<span class="pl-smi">server</span>.<span class="pl-en">connection</span>({<span class="pl-s"><span class="pl-pds">"</span>port<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">8080</span>});
+<span class="pl-smi">server</span>.<span class="pl-en">register</span>([<span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>simple-hapi-plugin-demo<span class="pl-pds">"</span></span>)]);
+<span class="pl-smi">server</span>.<span class="pl-c1">start</span>(<span class="pl-smi">err</span> <span class="pl-k">=&gt;</span> {
+
+    <span class="pl-k">if</span> (err) {
+        <span class="pl-k">throw</span> err;
+    }
+});</pre></div>
+
+<h2>
+<a id="development" class="anchor" href="#development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Development</h2>
+
+<p>When developing, tests go into the tests folder.</p>
+
+<p>To run the tests</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"># Just run the tests</span>
+$ npm <span class="pl-c1">test</span>
+<span class="pl-c"># Run the tests and show a verbose report</span>
+$ npm <span class="pl-c1">test</span> -- -v
+<span class="pl-c"># Run the tests and produce a coverage report</span>
+$ npm run test-cover</pre></div>
+
+<p>to run a test server Hapi server while developing</p>
+
+<div class="highlight highlight-source-shell"><pre>npm start</pre></div>
+
+<p>or</p>
+
+<div class="highlight highlight-source-shell"><pre>$ npm run nodemon</pre></div>
+
+<p>to run under nodemon and watch for any changes.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>MIT</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
