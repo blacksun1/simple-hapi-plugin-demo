@@ -1,32 +1,37 @@
-"use strict";
-
 const Lab = require("lab");
 const Code = require("code");
 const Hapi = require("hapi");
 const Plugin = require("../dist/index");
 
 
-const expect = Code.expect;
+// Export and alias Lab and Code
 const lab = exports.lab = Lab.script();
-const experiment = lab.experiment;
-const beforeEach = lab.beforeEach;
-const test = lab.test;
+const {expect} = Code;
+const {beforeEach, experiment, test} = lab;
+
+// Get the port from the package.json
+const port = {
+  // eslint-disable-next-line
+  "port": process.env.npm_package_config_port
+};
+
 
 let server;
 
 experiment("bitcoin-server", () => {
 
-  experiment("", () => {
+  experiment("when registered without a URL prefix", () => {
 
     beforeEach(() => {
 
       server = new Hapi.Server();
-      server.connection({"port": "1337"});
+      server.connection(port);
+
       return server.register([{"register": Plugin}])
         .then(() => server.initialize());
     });
 
-    test("That nothing comes back", () =>{
+    test("must return a 404 for a non-existant url", () =>{
 
       const request = {
         "method": "GET",
@@ -42,7 +47,7 @@ experiment("bitcoin-server", () => {
 
     });
 
-    test("API comes back", () =>{
+    test("must return a 200 API comes back", () =>{
 
       const request = {
         "method": "GET",
@@ -61,12 +66,13 @@ experiment("bitcoin-server", () => {
 
   });
 
-  experiment("", () => {
+  experiment("when registered with a URL prefix", () => {
 
     beforeEach(() => {
 
       server = new Hapi.Server();
       server.connection({"port": "1337"});
+
       return server.register([{"register": Plugin}], {"routes": {"prefix": "/v1"}})
         .then(() => server.initialize());
     });

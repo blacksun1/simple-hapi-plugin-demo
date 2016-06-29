@@ -1,7 +1,8 @@
-import Package from "../package.json";
+const Package = require("../package.json");
 
+const internals = {};
 
-exports.register = function (server, options, next) {
+exports = module.exports = internals.register = function (server, options, next) {
 
   server.expose("name", Package.name);
   server.expose("version", Package.version);
@@ -19,6 +20,6 @@ exports.register = function (server, options, next) {
   return next();
 };
 
-exports.register.attributes = {
+internals.register.attributes = {
   "pkg": Package
 };

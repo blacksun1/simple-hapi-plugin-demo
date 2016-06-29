@@ -21,18 +21,40 @@ module.exports = function(grunt) {
     },
 
     "clean": {
-      "dist": ["./dist"]
+      "dist": ["./dist", "test/artifacts"]
     },
 
     "eslint": {
-      "target": ["./lib/**/*.es6"]
+      "options": {
+        "extensions": [".js", ".es6"],
+        "format": require("eslint-html-reporter"),
+        "outputFile": "test/artifacts/linting.html"
+      },
+      "target": ["lib", "test"]
+    },
+
+    "shell": {
+      "options": {
+
+      },
+      "test": {
+        "command": "npm run test"
+      },
+      "test-cover": {
+        "command": "npm run test-cover"
+      }
     }
 
   });
 
   grunt.registerTask("build", [
     "clean",
+    "eslint",
     "babel"
+  ]);
+
+  grunt.registerTask("test", [
+    "shell:test-cover"
   ]);
 
   grunt.registerTask("default", ["build"]);

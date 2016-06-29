@@ -50,7 +50,7 @@ $ npm run test-cover
 to run a test server Hapi server while developing
 
 ```bash
-npm start
+$ npm start
 ```
 
 or
