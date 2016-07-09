@@ -21,7 +21,8 @@
     "pretest-cover": "npm run-script build",
     "test-cover": "lab -c -T node_modules/lab-babel -S  --globals '__core-js_shared__' -r html -o ./test/artifacts/coverage.html",
     "pretest-coveralls": "npm run-script build",
-    "test-coveralls": "lab -c -T node_modules/lab-babel -S  --globals '__core-js_shared__' -r lcov | ./node_modules/coveralls/bin/coveralls.js"
+    "test-coveralls": "lab -c -T node_modules/lab-babel -S  --globals '__core-js_shared__' -r lcov | ./node_modules/coveralls/bin/coveralls.js",
+    "travis": "npm run build && npm run test-coveralls"
   },
   "repository": {
     "type": "git",
